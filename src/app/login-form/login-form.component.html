@@ -1,0 +1,19 @@
+<div class="login-page">
+  <div class="form">
+    <img src="./assets/img/logoC.png" style="width:34%">
+    <div class="tittle">Welcome Back!</div>
+    <form class="login-form">
+      <div class="emInput">
+        <span><img class="emb" src="./assets/img/ic_email.png"></span> <input #username (keyup)="userName(username.value)"
+          type="text" placeholder="Email" />
+      </div>
+      <div class="emInput">
+        <span><img class="emb" src="./assets/img/ic_fingerprint.png"></span><input #pass (keyup)="password(pass.value)"
+          type="password" placeholder="Password" />
+      </div>
+    </form>
+    <div class="control">
+      <button class="loginbutton" (click)="goToHome()">Login</button>
+    </div>
+    <p class="message">Made with <img style="width: 3%" src="./assets/img/heart.png" alt=""> by Strivtech</p>
+  </div>

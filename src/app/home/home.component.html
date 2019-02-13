@@ -1,0 +1,94 @@
+<div class="content">
+  <div class="top-bar">
+    <div class="box1-1">
+      <div></div>
+
+      <div class="dropdown" style="float:right;">
+        <button (click)="menuHideandShow()" class="dropbtn">
+          <div class="user-name"> <span>Admin</span> <img class="ic_contact" src="./assets/img/account.png" alt="">
+            <div class="arrow"></div>
+          </div>
+        </button>
+        <div [hidden]="isHiden" class="dropdown-content ">
+          <a (click)="hideTheMenu()" (click)="logOut()">Logout</a>
+          <a (click)="hideTheMenu()">Vacation Request</a>
+          <a (click)="hideTheMenu()">Other Request</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-panel">
+    <div (click)="hideTheMenu()" class="panel-box control-panel">
+      <div class="counter-row">
+        <div class="welcomeW">{{ramdomWord }} {{currentDay}} </div>
+        <div class="main-clock">
+          <div>{{gethours}}</div>
+          <div>:</div>
+          <div>{{mins}}</div>
+          <div>:</div>
+          <div>{{secs}}</div>
+        </div>
+      </div>
+      <div class="smll-counter-row">
+        <button class="btn-all" [ngClass]="changBtnColor ? 'btn-info-f2-smll' : 'btn-info-f-smll'" (click)="shiftStartEnd()"
+          (click)="changeFromPauseToplay()">
+          <span class="ev-name-smll">{{shiftLabel | uppercase}}</span>
+          <div class="circle-smll">
+            <div id="triangle-right-smll" class="triangle-right-smll"></div>
+          </div>
+        </button>
+        <div class="seco-clock">
+          <div>{{gethoursB}}</div>
+          <div>:</div>
+          <div>{{minsB}}</div>
+          <div>:</div>
+          <div>{{secsB}}</div>
+        </div>
+      </div>
+      <div class="actions-row">
+        <button (click)="changeFromPauseToplayB()" class="btn-all" [ngClass]="btnBreakColor ? 'btn-info-f2' : 'btn-info-f'"
+          (click)="breakStartEndEvents()" [disabled]="breakIsDisabled">
+          <span class="ev-name">{{breakLabel | uppercase}} </span> <span style="width:20px" [hidden]='bNisHidden'>
+            <strong>{{breaksAmount}}B</strong></span>
+          <div id="circle-dis-B" class="circle-dis">
+            <div id="square" class="triangle-right"></div>
+          </div>
+        </button>
+        <button (click)="changeFromPauseToplayL()" class="btn-all" [ngClass]="btnLunchColor ? 'btn-info-f2' : 'btn-info-f'"
+          (click)="lunchStartEndEvents()" [disabled]="lunchIsDisabled">
+          <span class="ev-name">{{lunchLabel | uppercase}}</span>
+          <div id="circle-dis-L" class="circle-dis">
+            <div id="square-L" class="triangle-right"></div>
+          </div>
+        </button>
+
+        <div class="dropdown">
+          <button [disabled]="otherIsDisabled" class="btn-all " [ngClass]="BtnOtherColor ? 'btnOther-info-f2' : 'btnOther-info-f'">
+            <select (change)="OtherBreakOptions($event.target.value)" style="border: none; outline: none;">
+              <option *ngFor="let menuOthers of munuOtherSelection" [value]="menuOthers.name" class="ev-name"
+                [disabled]="otherIsDisabled">{{menuOthers.name | uppercase}}
+              </option>
+            </select>
+            <div (click)="endfromBtnOpt()" id="circle-dis-O" class="circle-dis">
+              <div id="square-O" class="triangle-right"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="panel-box logs-panel">
+      <h1 class="logs-name">Logs</h1>
+      <div class="logs-container">
+        <section class="all-logs">
+          <div *ngFor="let eventLogs of currentEvent" class="event-name-box" role="alert">
+            <span class="eventName">
+              {{eventLogs}}
+            </span>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </div>
+</div>

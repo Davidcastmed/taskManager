@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'node_modules/bulma/bulma';
+@font-face {
+  font-family: 'vision';
+  src: url('assets/Fonts/OTFVision/Vision.otf');
+}
+body {
+  overflow: hidden;
+  font-family: 'vision'
+}
+::-webkit-scrollbar {
+  width: .5em;
+  height: .5em;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00BFEB;
+  outline: 1px solid #003F5A;
+  border-radius: 30px;
+}
