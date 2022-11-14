@@ -14,6 +14,7 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
 
   }
+  // Esto es únicamente con propósitos de prueba, aqui o se hace request al servidor
   userName(value: any) {
     this.username = '';
     this.username += value;
